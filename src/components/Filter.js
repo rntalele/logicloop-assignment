@@ -3,11 +3,6 @@ import '../css/Filter.css';
 const Filter = ({handleFilter,handleSortType,handleSort,sortType,setSortType,handleClear,name,setName,score,setScore})=>{
     const [sortDirection,setSortDirection] = useState('desc');
     
-
-    useEffect(()=>{
-        handleFilter(name,score);
-    },[name,score])
-
     const handleSortDirection = (e)=>{
         e.preventDefault();
         if(sortDirection==='desc'){

@@ -18,7 +18,11 @@ const Home = ()=>{
     const handleFilter = (name,score)=>{       
         let newData = data?.filter((game)=>{
             if(name && !score){
-                return game.name.toLowerCase().includes(name.toLowerCase())
+                return game.name.toLowerCase().includes(name.toLowerCase());
+                
+            }
+            if(!name & score){
+                return getRating(game.rating) >= score;
             }
             return game.name.toLowerCase().includes(name.toLowerCase()) && getRating(game.rating) >= score;
         });
@@ -28,40 +32,33 @@ const Home = ()=>{
     const handleSortType = (type,data)=>{
         if(type==='release-date'){
             if(data){
-                // console.log(data);
+
                 let orderedData = data?.sort((game1,game2)=>{
-                    // console.log(game1.first_release_Date,game2.first_release_Date);
                     let date1 = new Date(game1.first_release_date);
                     let date2 = new Date(game2.first_release_date);
                     return date1-date2;
 
                 });
-                // let orderedData = data?.sort((game1,game2)=>game1.rating - game2.rating);
                 setFilteredData([...orderedData]);
-                // console.log(orderedData);
             }
             else{
                  let orderedData = filteredData?.sort((game1,game2)=>{
-                    // console.log(game1.first_release_Date,game2.first_release_Date);
                     let date1 = new Date(game1.first_release_date);
                     let date2 = new Date(game2.first_release_date);
                     return date1-date2;
 
                 });
                  setFilteredData([...orderedData]);
-                //  console.log(orderedData);
             }
            
         }
         else if(type==='score'){
             let orderedData = filteredData?.sort((game1,game2)=>game2.rating - game1.rating);
-            // console.log(orderedData);
             setFilteredData([...orderedData]);
 
         }
         else if(type==='name'){
             let orderedData = filteredData?.sort((game1,game2)=>game1.name.toLocaleLowerCase().localeCompare(game2.name.toLocaleLowerCase()));
-            // console.log(orderedData);
             setFilteredData([...orderedData]);
 
         }
@@ -96,6 +93,10 @@ const Home = ()=>{
     useEffect(()=>{
         fetchData();
     },[])
+
+    useEffect(()=>{
+        handleFilter(name,score)
+    },[name,score])
 
     return(
         <div className='container'>
