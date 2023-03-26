@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Deployed on
 
-[View Live Demo] (https://logicloop-assignment-rnt.netlify.app)
+[View Live Demo](https://logicloop-assignment-rnt.netlify.app)
 
 ## Available Scripts
 
