@@ -1,0 +1,55 @@
+.filter-form{
+    color:white;
+    background-color: #0e1a2b;
+    /* display: inline-block; */
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.label{
+    display: block;
+}
+
+.filter-input{
+    background-color: #182c47;
+    border: none;
+    color:#c1d1e8;
+    margin-bottom: 40px;
+    padding: 5px;
+    width: 100%;
+
+}
+
+.filter-input:focus{
+    outline: none;
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #c1d1e8;
+    opacity: 1;
+    /* Firefox */
+}
+
+.sort-button{
+    background-color: #5692e8;
+    color: white;
+    border: none;
+}
+
+.filter-select{
+    flex-grow: 1;
+    background-color: #182c47;
+    border: none;
+    color:#c1d1e8;
+}
+
+.filter-select:focus{
+    outline: none;
+}
+
+.clear-button{
+    background-color: #5692e8;
+    border: none;
+    color:white;
+}
